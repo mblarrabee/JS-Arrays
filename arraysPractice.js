@@ -4,7 +4,10 @@
 var arr = [10,20,30];
 //Create a function named 'first' that is given 'arr' as the argument and  returns the first item the given array.
 
-  //Code Here
+function first(arr){
+  return arr[0];
+}
+console.log(first(arr));
 
 
 //Next problem
@@ -15,8 +18,10 @@ var arr = [40,50,60];
 //Create a function named 'last' that is given 'arr' as the argument and returns the last item the given array.
 
 
-  //Code Here
-
+function last(arr){
+  return arr[arr.length - 1];
+}
+console.log(last(arr));
 
 //Next Problem
 
@@ -24,7 +29,12 @@ var arr = [40,50,60];
 var family = ['Tyler', 'Jordyn', 'Ryan', 'Chelsey', 'Ireland'];
 //Create a function named 'looper' that is given family as it's only argument, loops through the given array, and alerts every item in the array.
 
-  //Code Here
+ function looper(family){
+    for(var item in family){
+      alert(family[item])
+    }
+ }
+ looper(family);
 
 
 //Next problem
@@ -34,7 +44,12 @@ var family = ['Tyler', 'Jordyn', 'Ryan', 'Chelsey', 'Ireland'];
 var letters = ['A', 'B', 'C', 'D', 'E'];
 //Write a function called reversedLooper that is given letters as it's only argument and loops through the given array backwards alerting every item in the array starting at the end.
 
-  //Code Here
+function reversedLooper(letters){
+  for (var i = letters.length - 1; i >= 0; i--) {
+    alert(letters[i]);
+}
+}
+reversedLooper(letters);
 
 
 //Next Problem
@@ -43,8 +58,15 @@ var letters = ['A', 'B', 'C', 'D', 'E'];
 var nums = [1,2,3,6,22,98,45,23,22,12];
 //Write a function named evenFinder that is given nums as it's only argument and removes all values that aren't even from the given array.
 
-  //Code Here
-
+function evenFinder(nums){
+  for(var item in nums){
+    if (nums[item] % 2 !== 0){
+      nums.splice(item, 1);
+    }
+  }
+}
+evenFinder(nums);
+console.log(nums);
 
 //Next problem
 
@@ -54,10 +76,22 @@ var evens = [];
 var odds = [];
 //Write a function called divider that is given three arguments, nums, evens, and odds.
 //Have divider return an Array with the first item in the array being the evens array (all the even values from nums) and the second item in the Array being the odds array(all the odd values from nums).
+function divider(nums, evens, odds){
+  for(var item in nums){
+    if(nums[item] % 2 !== 0){
+      odds.push(nums[item]);
+    }
+    else{
+      evens.push(nums[item]);
+    }
+  }
+  var seperate = [evens, odds];
+  return seperate;
+}
+console.log(divider(nums, evens, odds));
+console.log(evens);
+console.log(odds);
 
-
-
-  //Code Here
 
 
 //Next Problem
@@ -69,9 +103,16 @@ var getRandomArbitrary = function() {
 var numbers = [0,3,4,5,6,7,9,14,17,24,25,26,29,30];
 //Above you're given a function that will return a random number between 0 and 30, and an array full or numbers. Your job is to write a function named finder that will get a random number, then loop through the array to see if that random number is in the array. If it is, return true, if it's not, return false
 
-  //Code Here
+function finder(numbers){
+    for(var item in numbers){
+      if(getRandomArbitrary() === numbers[item]){
+        return true;
+      }
+    }
+  return false;
+}
 
-
+finder(numbers);
 //Next problem
 
 
@@ -79,9 +120,11 @@ var numbers = [0,3,4,5,6,7,9,14,17,24,25,26,29,30];
 var str = 'this is my sentence';
 //Write a function called reverse that takes is given str as it's only argument and returns that string after it's been reversed
 
-  //Code Here
+function reverse(str){
+  return str.split("").reverse().join("");
+}
 
-
+console.log(reverse(str));
 //Next Problem
 
 
@@ -99,7 +142,26 @@ var myGroceryList = ['chips', 'pizza', 'hotpockets', 'MtnDew', 'corndogs'];
   myGroceryList then return the new, updated grocery list.
 */
 
-  //Code Here
+function removeItem(myGroceryList, item){
+  for(var i in myGroceryList){
+    if(item === myGroceryList[i]){
+      myGroceryList.splice(i,1);
+    }
+  }
+  return myGroceryList;
+}
+
+function addItem(myGroceryList, item){
+  for(var i in myGroceryList){
+    if(item === myGroceryList[i]){
+      return myGroceryList;
+    }
+    else myGroceryList.push(item);
+    return myGroceryList;
+  }
+}
+console.log(removeItem(myGroceryList, "pizza"));
+console.log(addItem(myGroceryList, "Bananas"));
 
 //removeItem('chips') --> ['pizza', 'hotpockets', 'MtnDew', 'corndogs'];
 //addItem('Jerky') --> ['pizza', 'hotpockets', 'MtnDew', 'corndogs', 'Jerky'];
