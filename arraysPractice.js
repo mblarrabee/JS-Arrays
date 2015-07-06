@@ -174,8 +174,14 @@ console.log(addItem(myGroceryList, "Bananas"));
 
 //Write a function called maker that creates an array, fills that array with numbers from 1 to 215, then returns the array.
 
-  //Code Here
-
+function maker(num){
+  var myArray = [];
+  for(var i = 1; i <= num; i++){
+    myArray.push(i);
+  }
+  return myArray;
+}
+console.log(maker(215));
 
 
 //Next Problem
@@ -185,8 +191,14 @@ var numbers = [5, '9', 16, 19, '25', '34', 48];
 //Write a function called addTen that is given 'numbers' as it's only argument and returns a new
 //array after adding ten to each item in numbers. *Verify your answer is correct. --> [15, 19, 26, 29, 35, 44, 58]
 
-  //Code Here
-
+function addTen(numbers){
+  var newnumbers = [];
+  for(var i in numbers){
+    newnumbers.push(Number(numbers[i])+10);
+  }
+  return newnumbers;
+}
+console.log(addTen(numbers));
 
 
 //Next Problem
@@ -203,18 +215,39 @@ for(var i = 0; i < num1; i++){
 for(var i = 0; i < num2; i++){
   arr2.push(i);
 }
+console.log(arr1);
+console.log(arr2);
 //Above is some code that adds a random number to both arr1 and arr2.
 //Write a function that is given arr1 and arr2 is it's only arguments. Return the array which is longest.
 
-  //Code Here
-
+function longest(arr1, arr2){
+  if(arr1.length > arr2.length){
+    return arr1;
+  }
+  else if(arr2.length > arr1.length){
+    return arr2;
+  }
+  return "They are the same length";
+}
+console.log(longest(arr1, arr2));
 
 /*As a continuation of the previous problem, write another function called 'both'.
   Your 'both' function will be given two arguments, arr1 and arr2 (from the previous example)
   'both' should return a new array full of numbers that are found in both arr1 and arr2.
 */
 
-  //Code Here
+function both(arr1, arr2){
+  var botharray = [];
+  for(var i in arr1){
+    for(var j in arr2){
+      if(arr1[i] === arr2[j]){
+        botharray.push(arr1[i]);
+      }
+    }
+  }
+  return botharray;
+}
+console.log(both(arr1, arr2));
   
   
   
@@ -254,13 +287,20 @@ var colt = {
 array with those four objects. After that console.log the length of the Array and make
 sure that it's equal to 4. */
 
-  //Code Here
+devMountainEmployees.push(tyler,cahlan,ryan,colt);
+console.log(devMountainEmployees);
+console.log(devMountainEmployees.length);
 
 /*Now let's say Cahlan has a mental breakdown and has to take a leave of absense to 'find himself'.
 Loop through your devMountainEmployees until you find cahlan, then remove him from the array.*/
 
-  //Code Here
-
+for(var i in devMountainEmployees){
+  if(devMountainEmployees[i] === cahlan){
+    devMountainEmployees.splice(i,1);
+  }
+}
+console.log(devMountainEmployees);
+console.log(devMountainEmployees.length);
 
 
 
@@ -301,7 +341,7 @@ of Data is to have an Array full of objects. */
 
 //Create an empty array called users.
 
-  //Code Here
+var users = [];
 
 /*Now add three user objects to your users array. Each user object should contain the
 following properties. name, email, password, username.*/
@@ -313,8 +353,21 @@ var user1 = {
     password: 'iLoveJavaScript',
     username: 'infiniateLoop'
 }
+var user2 = {
+    name: 'Jane Doe',
+    email: 'JaneDoe@hotmail.com',
+    password: 'mypassword',
+    username: 'Jane'
+}
+var user3 = {
+    name: 'John Doe',
+    email: 'JD@email.com',
+    password: '12345',
+    username: 'jDoe'
+}
 
-//Your Code Here
+users.push(user1, user2, user3);
+console.log(users);
 
 /*Now you have a very common data structure. Twitter is a good use case.
 It's easy to imagine that your followers list on Twitter is an Array full or objects
@@ -324,7 +377,12 @@ and those objects contain properties about the specific person you follow.*/
 objects until you find Tyler's account (use tylermcginnis33@gmail.com to find him).
 Once you find the particular indice he's located in, delete him from the array.*/
 
-  //Code Here
+for(var i in users){
+  if(users[i].email === 'tylermcginnis33@gmail.com'){
+    users.splice(i,1);
+  }
+}
+console.log(users);
 
 //The activity we just did is very much how data works in 'the real world'.
 
