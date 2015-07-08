@@ -104,8 +104,9 @@ var numbers = [0,3,4,5,6,7,9,14,17,24,25,26,29,30];
 //Above you're given a function that will return a random number between 0 and 30, and an array full or numbers. Your job is to write a function named finder that will get a random number, then loop through the array to see if that random number is in the array. If it is, return true, if it's not, return false
 
 function finder(numbers){
+    var random = getRandomArbitrary();
     for(var item in numbers){
-      if(getRandomArbitrary() === numbers[item]){
+      if(random === numbers[item]){
         return true;
       }
     }
